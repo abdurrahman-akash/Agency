@@ -1,4 +1,5 @@
 import { Variants } from 'framer-motion';
+import { type MotionProps, type Variant } from "framer-motion";
 
 // Fade up animation for sections and cards
 export const fadeUp: Variants = {
@@ -10,16 +11,16 @@ export const fadeUp: Variants = {
   }
 };
 
-// Staggered fade in for lists of items
-export const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
+// // Staggered fade in for lists of items
+// export const staggerContainer: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1
+//     }
+//   }
+// };
 
 // Item animation for staggered lists
 export const staggerItem: Variants = {
@@ -87,3 +88,69 @@ export const parallaxScroll = (yOffset: number): Variants => ({
     }
   }
 });
+
+export const fadeInVariants: Record<string, Variant> = {
+  hidden: { 
+    opacity: 0,
+    y: 10,
+  },
+  visible: { 
+    opacity: 1,
+    y: 0,
+  },
+};
+
+export const staggerContainer = (staggerChildren?: number, delayChildren?: number): MotionProps => {
+  return {
+    variants: {
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: staggerChildren || 0.1,
+          delayChildren: delayChildren || 0,
+        },
+      },
+    },
+    initial: "hidden",
+    animate: "visible",
+  };
+};
+
+export const slideIn = (direction: "left" | "right" | "up" | "down", type: string, delay: number, duration: number): MotionProps["variants"] => {
+  return {
+    hidden: {
+      x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
+      y: direction === "up" ? "100%" : direction === "down" ? "-100%" : 0,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        type,
+        delay,
+        duration,
+        ease: "easeOut",
+      },
+    },
+  };
+};
+
+export const textVariant = (delay?: number): MotionProps["variants"] => {
+  return {
+    hidden: {
+      y: 20,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 1.25,
+        delay: delay || 0,
+      },
+    },
+  };
+};

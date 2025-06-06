@@ -1,15 +1,25 @@
-import React, { ReactNode } from "react";
+"use client"
 
-type ThemeProps = {
-    children: ReactNode;
-};
+import * as React from "react"
+import { ThemeProvider as NextThemesProvider } from "next-themes"
+import type { ThemeProviderProps } from "next-themes"
 
-export default function ThemeProvider({ children }: ThemeProps) {
-    return (
-        <div className="min-h-screen min-w-full bg-gradient-to-br from-[#f8fafc] via-[#e0e7ef] to-[#f1f5f9] text-gray-900 font-sans flex flex-col">
-            <section className="p-10 mx-auto">
-                {children}
-            </section>
-        </div>
-    );
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return (
+    <NextThemesProvider {...props}>
+      <div>
+        {children}
+      </div>
+    </NextThemesProvider>
+  )
 }
