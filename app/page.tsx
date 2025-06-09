@@ -3,9 +3,11 @@ import HeroSection from "@/components/section/HeroSection";
 import Projects from "@/components/section/ProjectsSection";
 import { ServicesGrid } from "@/components/section/ServicesGrid";
 import Team from "@/components/section/TeamSection";
-import Testimonials from "@/components/section/Testimonials";
+// import Testimonials from "@/components/section/Testimonials";
 import StarsSection from "@/components/section/StarsSection";
 import CTA from "@/components/section/CTA";
+// import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import AnimatedTestimonialsDemo  from "@/components/section/animated-testmonial";
 
 
 export default function Home() {
@@ -16,7 +18,8 @@ export default function Home() {
       <ServicesGrid/>
       <Projects/>
       <Team/>
-      <Testimonials/>
+      {/* <Testimonials/> */}
+      <AnimatedTestimonialsDemo />
       <StarsSection />
       <CTA/>
     </main>

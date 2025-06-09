@@ -29,6 +29,22 @@ const config: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'float-up': {
+          '0%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '50%': {
+            transform: 'translateY(-10px)'
+          }
+        },
+        'float-down': {
+          '0%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '50%': {
+            transform: 'translateY(10px)'
+          }
+        },
         'fade-up': {
           '0%': {
             opacity: '0',
@@ -83,7 +99,9 @@ const config: Config = {
         'fade-down': 'fade-down 0.5s ease-out',
         'fade-in': 'fade-in 0.5s ease-out',
         'slide-in': 'slide-in 0.5s ease-out',
-        'zoom-in': 'zoom-in 0.5s ease-out'
+        'zoom-in': 'zoom-in 0.5s ease-out',
+        'float-up': 'float-up 3s ease-in-out infinite',
+        'float-down': 'float-down 3s ease-in-out infinite'
       },
       colors: {
         background: 'hsl(var(--background))',

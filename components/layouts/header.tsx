@@ -34,7 +34,7 @@ export function Header() {
   return (
     <header
       className={cn(
-      "fixed top-0 left-0 right-0 py-4 z-40 duration-300",
+      "fixed top-0 left-0 right-0 py-4 z-60 duration-300",
       scrolled
       )}
     >
