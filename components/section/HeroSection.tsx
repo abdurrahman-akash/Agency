@@ -3,10 +3,20 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { BackgroundGradient } from "../ui/background-gradient";
+import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
   return (
     <section className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white animate-slide-in-right">
+        <div
+        className={cn(
+          "absolute inset-0 opacity-20",
+          "[background-size:20px_20px]",
+          "[background-image:radial-gradient(#d4d4d4_1px,transparent_1px)]",
+          "dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]",
+          
+        )}
+      />
       <div className="relative min-h-screen flex items-center pt-20 pb-16">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-orange-500/10 to-transparent" />
 

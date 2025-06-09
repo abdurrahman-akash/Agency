@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { Users, Award, Building, Calendar } from 'lucide-react';
 
 const stats = [
@@ -28,6 +29,7 @@ const stats = [
 export default function StatsSection() {
   return (
     <div className="container mx-auto py-24 px-4 md:px-6">
+     
       <div className="text-center mb-16 animate-fade-up">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Dive into our studio&lsquo;s core: <span className="text-orange-500">numbers that mirror our dedication, creativity, and pursuit of excellence.</span>
