@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
+import Meteors from "../ui/meteors";
 interface ServiceCardProps {
   title: string;
   description: string;
@@ -29,7 +29,7 @@ export function ServiceCard({
       transition={{ duration: 0.5, delay: delay }}
       viewport={{ once: true }}
       className={cn(
-        "group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-md",
+        "group relative overflow-hidden rounded-xl border p-6 transition-all hover:shadow-md bg-black text-gray-200",
         className
       )}
     >
@@ -45,11 +45,12 @@ export function ServiceCard({
 
         <Link 
           href={href}
-          className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
+          className="inline-flex items-center text-sm font-medium hover:text-chart-3 transition-colors"
         >
           Learn more
           <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Link>
+        <Meteors number={20}/>
       </div>
     </motion.div>
   );

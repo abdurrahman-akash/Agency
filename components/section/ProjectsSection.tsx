@@ -37,7 +37,9 @@ export default function Projects() {
           </div>
           <div className="mt-6 md:mt-0">
             <Button variant="link" className="text-orange-500 p-0">
+              <Link href="/projects" className="flex items-center">
               View All Projects <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>

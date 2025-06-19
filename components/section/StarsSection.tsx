@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { cn } from '@/lib/utils';
 import { Users, Award, Building, Calendar } from 'lucide-react';
 import { motion, useInView, useAnimation, Variants } from 'framer-motion';
 

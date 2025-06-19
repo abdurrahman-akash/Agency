@@ -29,6 +29,14 @@ const config: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'marquee-left': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' }
+        },
+        'marquee-right': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' }
+        },
         'float-up': {
           '0%, 100%': {
             transform: 'translateY(0)'
@@ -101,7 +109,9 @@ const config: Config = {
         'slide-in': 'slide-in 0.5s ease-out',
         'zoom-in': 'zoom-in 0.5s ease-out',
         'float-up': 'float-up 3s ease-in-out infinite',
-        'float-down': 'float-down 3s ease-in-out infinite'
+        'float-down': 'float-down 3s ease-in-out infinite',
+        'marquee-left': 'marquee-left 25s linear infinite',
+        'marquee-right': 'marquee-right 25s linear infinite'
       },
       colors: {
         background: 'hsl(var(--background))',

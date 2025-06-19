@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Code, Smartphone, Layers, Database, Cpu, LayoutGrid } from "lucide-react";
 import { ServiceCard } from "@/components/services/ServiceCard";
+import { Spotlight } from "../ui/Spotlight";
 
 export function ServicesGrid() {
   const services = [
@@ -45,7 +46,7 @@ export function ServicesGrid() {
   ];
 
   return (
-    <section className="py-24 bg-muted/50">
+    <section className="py-24 ">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +55,7 @@ export function ServicesGrid() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shadow-chart-1 text-chart-1">Our Services</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             We offer a comprehensive range of software development services to help 
             businesses of all sizes achieve their digital transformation goals.
@@ -74,6 +75,10 @@ export function ServicesGrid() {
           ))}
         </div>
       </div>
+    <Spotlight
+        className="-top-40 left-0 md:-top-20 md:left-60"
+        fill="red"
+      />
     </section>
   );
 }

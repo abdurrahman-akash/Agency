@@ -40,9 +40,7 @@ export function Header() {
     >
       <div
       className={cn(
-        "container mx-auto px-4 flex items-center justify-between",
-        "rounded-full bg-gradient-to-r from-white/40 via-primary/10 to-white/40 shadow-xl backdrop-blur-2xl",
-        "dark:bg-gradient-to-r dark:from-white/40 dark:via-primary/10 dark:to-white/40 dark:shadow-xl dark:backdrop-blur-2xl"
+        "container mx-auto px-4 flex items-center justify-between backdrop-blur-sm bg-white/80 dark:bg-slate-900/80 rounded-lg shadow-lg transition-all duration-300",
       )}
       >
       <Link href="/" className="relative z-10 group">
@@ -69,10 +67,10 @@ export function Header() {
             <Link
             href={link.href}
             className={cn(
-              "relative font-semibold transition-all duration-200 px-4 py-2 rounded-xl hover:bg-gradient-to-r hover:from-primary/20 hover:to-chart-1/20 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40",
-              "dark:hover:bg-gradient-to-r dark:hover:from-primary/30 dark:hover:to-chart-1/30 dark:hover:text-primary",
+              "relative font-semibold transition-all duration-200 px-4 py-2 rounded-xl hover:bg-gradient-to-r hover:from-primary/20 hover:to-chart-1/20 hover:text-sky-900 focus:outline-none focus:ring-2 focus:ring-primary/40",
+              "dark:hover:bg-gradient-to-r dark:hover:from-primary/30 dark:hover:to-chart-1/30 dark:hover:text-blue-600",
               pathname === link.href
-              ? "text-primary bg-gradient-to-r from-primary/20 to-chart-1/20 shadow after:absolute after:left-4 after:bottom-1 after:h-1 after:w-2/3 after:bg-primary after:rounded-full after:content-['']"
+              ? "text-gray-200 bg-gradient-to-r from-primary/20 to-chart-1/20 shadow after:absolute after:left-4 after:bottom-1 after:h-1 after:w-2/3 after:bg-primary after:rounded-full after:content-['']"
               : "text-muted-foreground dark:text-muted"
             )}
             >
