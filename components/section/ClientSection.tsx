@@ -12,6 +12,10 @@ const clients = [
   { name: "Spotify", logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" },
   { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
   { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
+  { name: "Slack", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" },
+  { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_logo.svg" },
+  { name: "Twitter", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" },
+  { name: "Salesforce", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
 ];
 
 export function ClientsSection() {
@@ -30,53 +34,80 @@ export function ClientsSection() {
           </h2>
         </motion.div>
 
-        {/* Logos for larger screens */}
-        <div className="hidden md:block">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center"
-          >
-            {clients.map((client, index) => (
-              <motion.div
-                key={client.name}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex justify-center"
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className={cn(
-                    "h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity",
-                    client.name === "Airbnb" && "h-6 md:h-8",
-                    client.name === "Spotify" && "h-7 md:h-9",
-                  )}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Animated marquee for mobile */}
-        <div className="md:hidden relative overflow-hidden">
-          <div className="flex space-x-8 animate-marquee">
-            {[...clients, ...clients].map((client, index) => (
-              <div key={`${client.name}-${index}`} className="flex-shrink-0">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="h-6 w-auto object-contain opacity-70"
-                />
+        {/* Infinite scrolling client logos with blur effects */}
+        <div className="w-full overflow-hidden">
+          {/* First row - left to right */}
+          <div className="relative mb-8 overflow-hidden">
+            {/* Left blur effect */}
+            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 bg-gradient-to-r from-background to-transparent"></div>
+            
+            <div className="relative w-max flex space-x-12">
+              <div className="flex space-x-12 animate-scroll-right">
+                {clients.map((client, index) => (
+                  <div key={`${client.name}-row1-${index}`} className="flex-shrink-0">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+              
+              <div className="flex space-x-12 animate-scroll-right" aria-hidden="true">
+                {clients.map((client, index) => (
+                  <div key={`${client.name}-row1-dup-${index}`} className="flex-shrink-0">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Right blur effect */}
+            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 bg-gradient-to-l from-background to-transparent"></div>
+          </div>
+          
+          {/* Second row - right to left */}
+          <div className="relative overflow-hidden">
+            {/* Left blur effect */}
+            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 bg-gradient-to-r from-background to-transparent"></div>
+            
+            <div className="relative w-max flex space-x-12">
+              <div className="flex space-x-12 animate-scroll-left">
+                {clients.map((client, index) => (
+                  <div key={`${client.name}-row2-${index}`} className="flex-shrink-0">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              <div className="flex space-x-12 animate-scroll-left" aria-hidden="true">
+                {clients.map((client, index) => (
+                  <div key={`${client.name}-row2-dup-${index}`} className="flex-shrink-0">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Right blur effect */}
+            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 bg-gradient-to-l from-background to-transparent"></div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

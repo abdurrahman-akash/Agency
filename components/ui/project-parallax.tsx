@@ -13,12 +13,14 @@ import { TextGenerateEffect } from "./text-generate-effect";
 
 export const HeroParallax = ({
   products,
+  showTitle = true,
 }: {
   products: {
     title: string;
     link: string;
     thumbnail: string;
   }[];
+  showTitle?: boolean;
 }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
@@ -60,7 +62,7 @@ export const HeroParallax = ({
       ref={ref}
       className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <Header />
+      <Header showTitle={showTitle}/>
       <motion.div
         style={{
           rotateX,
@@ -105,18 +107,29 @@ export const HeroParallax = ({
   );
 };
 
-export const Header = () => {
+export const Header = ({showTitle}:{showTitle:boolean}) => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-chart-4 tracking-tight leading-tight ">
-        What we create <span className="text-chart-1">for our customer</span>
+       {showTitle ? (
+         <>What we create <span className="text-chart-1">for our customer</span></>
+       ):null}
       </h1>
 
-    <TextGenerateEffect
+   {
+        showTitle ? (
+           <TextGenerateEffect
           words="We create websites and products that help startups and innovative companies gain more audience. We achieve cutting-edge results, deliver seamless, innovative products, and impressive websites."
           filter={false}
           duration={0.5}
         />
+        ) :<TextGenerateEffect
+          words=" Protfolio"
+          filter={false}
+          duration={0.5} 
+          className="text-xl md:text-4xl font-bold dark:text-white text-chart-2 tracking-tight leading-tight mt-4"
+          />
+   }
 
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
        
